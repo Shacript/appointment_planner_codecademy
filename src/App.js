@@ -1,5 +1,5 @@
 import React from "react";
-import { Routes, Route, Navigate } from "react-router-dom";
+import { Routes, Route, Navigate, NavLink } from "react-router-dom";
 
 import { AppointmentsPage } from "./containers/appointmentsPage/AppointmentsPage";
 import { ContactsPage } from "./containers/contactsPage/ContactsPage";
@@ -22,7 +22,20 @@ function App() {
 
   return (
     <>
-      <nav></nav>
+      <nav>
+        <NavLink
+          to={ROUTES.CONTACTS}
+          className={({ isActive }) => (isActive ? "active" : "")}
+        >
+          Contacts
+        </NavLink>
+        <NavLink
+          to={ROUTES.APPOINTMENTS}
+          className={({ isActive }) => (isActive ? "active" : "")}
+        >
+          Appointments
+        </NavLink>
+      </nav>
       <main>
         <Routes>
           <Route exact path="/" element={<Navigate to={ROUTES.CONTACTS} />} />
