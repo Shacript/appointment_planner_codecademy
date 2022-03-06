@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { AppointmentForm } from "../../components/appointmentForm/AppointmentForm";
 import { TileList } from "../../components/tileList/TileList";
 
 export const AppointmentsPage = ({
@@ -31,6 +32,17 @@ export const AppointmentsPage = ({
     <div>
       <section>
         <h2>Add Appointment</h2>
+        <AppointmentForm
+          handleSubmit={handleSubmit}
+          title={title}
+          setTitle={setTitle}
+          contact={contact}
+          setContact={setContact}
+          date={date}
+          setDate={setDate}
+          time={time}
+          setTime={setTime}
+        />
       </section>
       <hr />
       <section>
