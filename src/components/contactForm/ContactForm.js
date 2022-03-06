@@ -40,7 +40,7 @@ export const ContactForm = ({
         placeholder="email"
         required
       />
-      <button type="submit">Submit</button>
+      <input type="submit" value="Submit"/>
     </form>
   );
 };

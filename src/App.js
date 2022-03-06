@@ -64,7 +64,7 @@ function App() {
         <Routes>
           <Route exact path="/" element={<Navigate to={ROUTES.CONTACTS} />} />
           <Route path={ROUTES.CONTACTS} element={<ContactsPage contacts={contacts} addContact={addContact} />} />
-          <Route path={ROUTES.APPOINTMENTS} element={<AppointmentsPage appointments={appointments} addAppointment={addAppointment} />} />
+          <Route path={ROUTES.APPOINTMENTS} element={<AppointmentsPage contacts={contacts} appointments={appointments} addAppointment={addAppointment} />} />
         </Routes>
       </main>
     </>
