@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Routes, Route, Navigate, NavLink } from "react-router-dom";
 
 import { AppointmentsPage } from "./containers/appointmentsPage/AppointmentsPage";
@@ -9,6 +9,8 @@ function App() {
   Define state variables for 
   contacts and appointments 
   */
+  const [contacts, setContacts] = useState([]);
+  const [appointments, setAppointments] = useState([]);
 
   const ROUTES = {
     CONTACTS: "/contacts",
@@ -19,6 +21,28 @@ function App() {
   Implement functions to add data to
   contacts and appointments
   */
+  const addContact = (name, phone_number, email) => {
+    setContacts((prevArray) => [
+      ...prevArray,
+      {
+        name,
+        phone_number,
+        email,
+      },
+    ]);
+  };
+
+  const addAppointment = (title, contact, date, time) => {
+    setAppointments((prevArray) => [
+      ...prevArray,
+      {
+        title,
+        contact,
+        date,
+        time,
+      },
+    ]);
+  };
 
   return (
     <>
@@ -39,8 +63,8 @@ function App() {
       <main>
         <Routes>
           <Route exact path="/" element={<Navigate to={ROUTES.CONTACTS} />} />
-          <Route path={ROUTES.CONTACTS} element={<ContactsPage />} />
-          <Route path={ROUTES.APPOINTMENTS} element={<AppointmentsPage />} />
+          <Route path={ROUTES.CONTACTS} element={<ContactsPage contacts={contacts} addContact={addContact} />} />
+          <Route path={ROUTES.APPOINTMENTS} element={<AppointmentsPage appointments={appointments} addAppointment={addAppointment} />} />
         </Routes>
       </main>
     </>
