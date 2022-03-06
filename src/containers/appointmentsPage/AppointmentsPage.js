@@ -42,6 +42,7 @@ export const AppointmentsPage = ({
           setDate={setDate}
           time={time}
           setTime={setTime}
+          contacts={contacts}
         />
       </section>
       <hr />
