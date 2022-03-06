@@ -31,8 +31,7 @@ export const AppointmentForm = ({
       />
       <input
         type="text"
-        value={date}
-        min={getTodayString}
+        defaultValue={getTodayString()}
         onChange={(e) => setDate(e.target.value)}
         required
       />
